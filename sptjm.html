@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#123c32" />
+    <title>Suratku — SPTJM</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar no-print">
+      <a class="brand" href="index.html">surat<span>ku</span></a>
+      <div class="topbar-actions">
+        <span class="save-status" id="saveStatus" aria-live="polite"
+          >Belum ada data tersimpan</span
+        ><button class="button button-secondary" id="recapButton" type="button">
+          Simpan ke Rekap</button
+        ><button
+          class="button button-secondary"
+          id="exportButton"
+          type="button"
+        >
+          Unduh Excel</button
+        ><button class="button button-secondary" id="resetButton" type="button">
+          Kosongkan</button
+        ><button class="button" id="printButton" type="button">
+          Cetak / Simpan PDF
+        </button>
+      </div>
+    </header>
+    <main class="app-shell">
+      <section class="editor no-print" aria-labelledby="formTitle">
+        <div class="intro">
+          <a class="back-link" href="index.html">← Semua template</a>
+          <p class="eyebrow">TEMPLATE 01</p>
+          <h1 id="formTitle">Surat Pernyataan Tanggung Jawab Mutlak</h1>
+          <p>
+            Isi data sekali. Surat di sebelah kanan akan diperbarui secara
+            otomatis dan siap dicetak.
+          </p>
+        </div>
+        <form id="letterForm" novalidate>
+          <fieldset>
+            <legend>Waktu dan tempat surat</legend>
+            <div class="field-grid">
+              <label class="full-width"
+                >Tanggal surat<input name="tanggalSurat" type="date" /></label
+              ><label class="full-width"
+                >Bertempat di<input
+                  name="tempatSurat"
+                  placeholder="Contoh: Bireuen"
+              /></label>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>Identitas pemohon</legend>
+            <div class="field-grid">
+              <label
+                >Nomor KTP / NIK <span class="required">*</span
+                ><input
+                  name="nik"
+                  inputmode="numeric"
+                  maxlength="16"
+                  placeholder="16 digit NIK"
+                  required /></label
+              ><label
+                >Nomor KK <span class="required">*</span
+                ><input
+                  name="nomorKk"
+                  inputmode="numeric"
+                  maxlength="16"
+                  placeholder="16 digit nomor KK"
+                  required /></label
+              ><label class="full-width"
+                >Nama sesuai KTP <span class="required">*</span
+                ><input
+                  name="nama"
+                  placeholder="Nama lengkap"
+                  required /></label
+              ><label
+                >Tanggal lahir<input name="tanggalLahir" type="date" /></label
+              ><label
+                >Jenis kelamin<select name="jenisKelamin">
+                  <option value="">Pilih jenis kelamin</option>
+                  <option>Laki-laki</option>
+                  <option>Perempuan</option>
+                </select></label
+              ><label class="full-width"
+                >Alamat sesuai KTP<textarea
+                  name="alamatKtp"
+                  rows="2"
+                  placeholder="Jalan, desa/kelurahan, kecamatan, kabupaten"
+                ></textarea>
+              </label>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>Informasi usaha</legend>
+            <div class="field-grid">
+              <label class="full-width"
+                >Alamat usaha<textarea
+                  name="alamatUsaha"
+                  rows="2"
+                  placeholder="Alamat lokasi usaha"
+                ></textarea></label
+              ><label
+                >Nomor Induk Berusaha<input
+                  name="nib"
+                  placeholder="Nomor NIB" /></label
+              ><label
+                >Nama usaha<input
+                  name="namaUsaha"
+                  placeholder="Nama usaha" /></label
+              ><label
+                >Bidang usaha<input
+                  name="bidangUsaha"
+                  placeholder="Contoh: Kuliner" /></label
+              ><label
+                >Email<input
+                  name="email"
+                  type="email"
+                  placeholder="nama@email.com" /></label
+              ><label class="full-width"
+                >Nomor telepon / HP<input
+                  name="telepon"
+                  inputmode="tel"
+                  placeholder="08xxxxxxxxxx"
+              /></label>
+            </div>
+          </fieldset>
+        </form>
+      </section>
+      <section class="preview-area" aria-label="Pratinjau surat">
+        <div class="preview-toolbar no-print">
+          <span>PRATINJAU 8,5 × 13 INCI</span
+          ><span>Data tersimpan otomatis di perangkat ini</span>
+        </div>
+        <article class="letter" id="letterPreview">
+          <h2>SURAT PERNYATAAN TANGGUNG JAWAB MUTLAK<br />(SPTJM)</h2>
+          <p class="opening">
+            Pada hari ini <span data-output="hari">............</span> Tanggal
+            <span data-output="tanggalAngka">..............</span> Bulan
+            <span data-output="bulanSurat">............</span> Tahun
+            <span data-output="tahunTerbilang">Dua Ribu Dua Puluh Enam</span>
+            (<span data-output="tanggalRingkas">.....,.....,2026</span>)
+            bertempat di
+            <span data-output="tempatSurat">......................</span> kami
+            yang bertanda tangan dibawah ini:
+          </p>
+          <dl class="identity-list">
+            <div>
+              <dt>Nomor KTP/NIK</dt>
+              <dd data-output="nik">
+                ................................................................
+              </dd>
+            </div>
+            <div>
+              <dt>Nomor KK</dt>
+              <dd data-output="nomorKk">
+                ................................................................
+              </dd>
+            </div>
+            <div>
+              <dt>Nama (sesuai KTP)</dt>
+              <dd data-output="nama">
+                ................................................................
+              </dd>
+            </div>
+            <div>
+              <dt>Tanggal Lahir</dt>
+              <dd data-output="tanggalLahir">
+                ................................................................
+              </dd>
+            </div>
+            <div>
+              <dt>Jenis Kelamin</dt>
+              <dd data-output="jenisKelamin">
+                ................................................................
+              </dd>
+            </div>
+            <div>
+              <dt>Alamat (sesuai KTP)</dt>
+              <dd data-output="alamatKtp">
+                ................................................................
+              </dd>
+            </div>
+            <div>
+              <dt>Alamat Usaha</dt>
+              <dd data-output="alamatUsaha">
+                ................................................................
+              </dd>
+            </div>
+            <div>
+              <dt>Nomor Induk Berusaha</dt>
+              <dd data-output="nib">
+                ................................................................
+              </dd>
+            </div>
+            <div>
+              <dt>Nama Usaha</dt>
+              <dd data-output="namaUsaha">
+                ................................................................
+              </dd>
+            </div>
+            <div>
+              <dt>Bidang Usaha</dt>
+              <dd data-output="bidangUsaha">
+                ................................................................
+              </dd>
+            </div>
+            <div>
+              <dt>Email</dt>
+              <dd data-output="email">
+                ................................................................
+              </dd>
+            </div>
+            <div>
+              <dt>Nomor Telp/Hp</dt>
+              <dd data-output="telepon">
+                ................................................................
+              </dd>
+            </div>
+          </dl>
+          <p>
+            Dalam hal ini bertindak atas nama diri sendiri, dengan ini
+            menyatakan:
+          </p>
+          <ol>
+            <li>
+              Bahwa kami adalah pengusaha mikro dengan asset dibawah Rp.1 Miliar
+              dan omset di bawah Rp. 2 Miliar;
+            </li>
+            <li>
+              Domisili tempat usaha berada pada wilayah terdampak bencana di
+              Kabupaten Bireuen Provinsi Aceh ;
+            </li>
+            <li>
+              Bukan merupakan ASN/TNI/POLRI, Pegawai BUMN dan/atau Pegawai BUMD;
+            </li>
+            <li>
+              Tidak sedang menerima KUR dan/atau kredit/pembiayaan perbankan
+              lainnya;
+            </li>
+            <li>
+              Tidak masuk dalam daftar pelaku fraud di Penyalur Banpres sesuai
+              dengan Peraturan Otoritas Jasa Keuangan Nomor 12 Tahun 2024
+              tentang Penerapan Strategi Anti Fraud bagi Lembaga Jasa Keuangan;
+            </li>
+            <li>
+              Bertanggung jawab atas pemanfaatan dana Bantuan Presiden
+              Rehabilitasi Usaha Mikro Terdampak Bencana di Kabupaten Bireuen
+              Provinsi Aceh untuk modal kerja, sarana pengembangan usaha
+              dan/atau penyelamatan usaha;
+            </li>
+            <li>
+              Tidak memberikan imbalan dalam bentuk apapun kepada siapapun;
+            </li>
+            <li>
+              Apabila dikemudian hari pernyataan yang saya buat ini merugikan
+              negara, maka saya bersedia mengembalikan dana sesuai dengan
+              ketentuan yang berlaku.
+            </li>
+          </ol>
+          <p>
+            Demikian pernyataan ini dibuat dengan kesadaran penuh dan bersedia
+            menerima sanksi apabila tidak sesuai dengan kondisi yang
+            sesungguhnya.
+          </p>
+          <div class="signature">
+            <p>
+              <span data-output="tempatSurat"
+                >................................</span
+              >,
+              <span data-output="tanggalSurat"
+                >..................................2026</span
+              >
+            </p>
+            <div class="signature-space"></div>
+            <p class="signature-name">
+              <span data-output="nama">(ttd dan nama jelas)</span>
+            </p>
+          </div>
+        </article>
+      </section>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>

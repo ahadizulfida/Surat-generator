@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#123c32" />
+    <title>Suratku — Surat Keterangan Miskin</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar no-print">
+      <a class="brand" href="index.html">surat<span>ku</span></a>
+      <div class="topbar-actions">
+        <span class="save-status" id="saveStatus" aria-live="polite"
+          >Belum ada data tersimpan</span
+        ><button class="button button-secondary" id="resetButton" type="button">
+          Kosongkan</button
+        ><button class="button" id="printButton" type="button">
+          Cetak / Simpan PDF
+        </button>
+      </div>
+    </header>
+    <main class="app-shell">
+      <section class="editor no-print" aria-labelledby="formTitle">
+        <div class="intro">
+          <a class="back-link" href="index.html">← Semua template</a>
+          <p class="eyebrow">TEMPLATE 02</p>
+          <h1 id="formTitle">Surat Keterangan Miskin</h1>
+          <p>
+            Isi bagian yang sebelumnya ditandai pada template. Pratinjau surat
+            akan berubah otomatis.
+          </p>
+        </div>
+        <form id="letterForm" novalidate>
+          <fieldset>
+            <legend>Wilayah dan pejabat desa</legend>
+            <div class="field-grid">
+              <label
+                >Kabupaten <span class="required">*</span
+                ><input
+                  name="kabupaten"
+                  placeholder="Nama Kabupaten"
+                  required /></label
+              ><label
+                >Kecamatan <span class="required">*</span
+                ><input
+                  name="kecamatan"
+                  placeholder="Nama kecamatan"
+                  required /></label
+              ><label
+                >Desa / kelurahan <span class="required">*</span
+                ><input
+                  name="desaKelurahan"
+                  placeholder="Nama desa atau kelurahan"
+                  required /></label
+              ><label
+                >Nama kepala desa <span class="required">*</span
+                ><input
+                  name="namaKepalaDesa"
+                  placeholder="Nama Kepala Desa"
+                  required /></label
+              ><label class="full-width"
+                >Tanggal surat <span class="required">*</span
+                ><input name="tanggalHariIni" type="date" required
+              /></label>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>Data Orang Tua / Wali</legend>
+            <div class="field-grid">
+              <label class="full-width"
+                >Nama <span class="required">*</span
+                ><input
+                  name="nama"
+                  placeholder="Nama Orang tua"
+                  required /></label
+              ><label
+                >Pekerjaan <span class="required">*</span
+                ><input
+                  name="pekerjaan"
+                  placeholder="Pekerjaan"
+                  required /></label
+              ><label class="full-width"
+                >Alamat <span class="required">*</span
+                ><textarea
+                  name="alamat"
+                  rows="2"
+                  placeholder="Alamat lengkap sesuai KTP"
+                  required
+                ></textarea>
+              </label>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>Data Pemohon</legend>
+            <div class="field-grid">
+              <label class="full-width"
+                >Nama Pemohon <span class="required">*</span
+                ><input
+                  name="namaPemohon"
+                  placeholder="Nama lengkap"
+                  required /></label
+              ><label
+                >NIK <span class="required">*</span
+                ><input
+                  name="nik"
+                  inputmode="numeric"
+                  maxlength="16"
+                  placeholder="16 digit NIK"
+                  required /></label
+              ><label
+                >Tempat lahir <span class="required">*</span
+                ><input
+                  name="tempatLahir"
+                  placeholder="Tempat lahir"
+                  required /></label
+              ><label
+                >Tanggal lahir <span class="required">*</span
+                ><input name="tanggalLahir" type="date" required /></label
+              ><label
+                >Pekerjaan orang tua <span class="required">*</span
+                ><input
+                  name="pekerjaanPemohon"
+                  placeholder="Pekerjaan"
+                  required /></label
+              ><label
+                >Agama <span class="required">*</span
+                ><input name="agama" placeholder="Agama" required /></label
+              ><label class="full-width"
+                >Alamat orang tua <span class="required">*</span
+                ><textarea
+                  name="alamatOrtu"
+                  rows="2"
+                  placeholder="Alamat lengkap"
+                  required
+                ></textarea>
+              </label>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>Kondisi ekonomi</legend>
+            <div class="field-grid">
+              <label
+                >Penghasilan per bulan <span class="required">*</span
+                ><input
+                  name="penghasilan"
+                  inputmode="numeric"
+                  placeholder="Contoh: 500.000"
+                  required /></label
+              ><label
+                >Jumlah tanggungan <span class="required">*</span
+                ><input
+                  name="tanggungan"
+                  inputmode="numeric"
+                  placeholder="Contoh: 4"
+                  required
+              /></label>
+            </div>
+          </fieldset>
+        </form>
+      </section>
+      <section class="preview-area" aria-label="Pratinjau surat">
+        <div class="preview-toolbar no-print">
+          <span>PRATINJAU 8,5 × 13 INCI</span
+          ><span>Data tersimpan otomatis di perangkat ini</span>
+        </div>
+        <article class="letter miskin-letter" id="letterPreview">
+          <header class="official-header">
+            <div class="emblem" aria-hidden="true">PEMKAB</div>
+            <div>
+              <h2>
+                PEMERINTAH KABUPATEN
+                <span data-output="kabupatenKop">{{kabupaten}}</span
+                ><br />KECAMATAN
+                <span data-output="kecamatanKop">{{kecamatan}}</span><br /><span
+                  data-output="desaKelurahanKop"
+                  >{{desa/kelurahan}}</span
+                >
+              </h2>
+            </div>
+          </header>
+          <div class="official-rule"></div>
+          <h3>SURAT KETERANGAN MISKIN</h3>
+          <p class="nomor">
+            Nomor :
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/2026
+          </p>
+          <p>
+            Keuchik
+            <span data-output="desaKelurahan">{{desa/kelurahan}}</span>
+            Kecamatan
+            <span data-output="kecamatan">{{kecamatan}}</span> Kabupaten
+            <span data-output="kabupaten">{{kabupaten}}</span>, dengan ini
+            menerangkan bahwa:
+          </p>
+          <dl class="identity-list miskin-identity">
+            <div>
+              <dt>Nama</dt>
+              <dd data-output="nama">{{nama}}</dd>
+            </div>
+            <div>
+              <dt>Pekerjaan</dt>
+              <dd data-output="pekerjaan">{{pekerjaan}}</dd>
+            </div>
+            <div>
+              <dt>Alamat</dt>
+              <dd data-output="alamat">{{alamat}}</dd>
+            </div>
+          </dl>
+          <p>Adalah benar Orang tua Kandung dari/Wali dari :</p>
+          <dl class="identity-list miskin-identity">
+            <div>
+              <dt>Nama</dt>
+              <dd data-output="namaPemohon">{{nama pemohon}}</dd>
+            </div>
+            <div>
+              <dt>NIK</dt>
+              <dd data-output="nik">{{nik}}</dd>
+            </div>
+            <div>
+              <dt>Tempat/Tgl Lahir</dt>
+              <dd>
+                <span data-output="tempatLahir">{{tempat lahir}}</span>,
+                <span data-output="tanggalLahir">{{tanggal lahir}}</span>
+              </dd>
+            </div>
+            <div>
+              <dt>Pekerjaan</dt>
+              <dd data-output="pekerjaanOrtu">{{pekerjaan Orang tua}}</dd>
+            </div>
+            <div>
+              <dt>Agama</dt>
+              <dd data-output="agama">{{agama}}</dd>
+            </div>
+            <div>
+              <dt>Alamat</dt>
+              <dd data-output="alamatOrtu">{{alamat orang tua}}</dd>
+            </div>
+          </dl>
+          <p>
+            Yang tersebut namanya di atas adalah benar penduduk
+            <span data-output="desaKelurahan">{{desa/kelurahan}}</span>
+            Kecamatan
+            <span data-output="kecamatan">{{kecamatan}}</span> Kabupaten
+            <span data-output="kabupaten">{{kabupaten}}</span>, dan berdasarkan
+            pengamatan kami termasuk dalam kategori keluarga kurang
+            <strong>MAMPU/MISKIN.</strong> Adapun yang bersangkutan memiliki
+            penghasilan keluarga yang tergolong rendah/tidak tetap dengan
+            rata-rata penghasilan sekitar Rp.
+            <strong
+              ><span data-output="penghasilan">{{penghasilan}}</span></strong
+            >
+            per bulan, serta memiliki tanggungan keluarga sebanyak
+            <span data-output="tanggungan">{{tanggungan}}</span> orang.
+          </p>
+          <p>
+            Demikian surat keterangan ini kami buat dengan sebenarnya agar dapat
+            dipergunakan sebagaimana mestinya.
+          </p>
+          <div class="signature miskin-signature">
+            <p>
+              <span data-output="desaKelurahan">{{desa/kelurahan}}</span>,
+              <span data-output="tanggalHariIni">{{tanggal hari ini}}</span>
+            </p>
+            <p>
+              Keuchik
+              <span data-output="desaKelurahan">{{desa/kelurahan}}</span>
+            </p>
+            <div class="signature-space"></div>
+            <p class="signature-name" data-output="namaKepalaDesa">
+              {{nama kepala desa}}
+            </p>
+          </div>
+        </article>
+      </section>
+    </main>
+    <script src="miskin.js"></script>
+  </body>
+</html>
