@@ -19,9 +19,9 @@ const placeholders = {
   nik: "{{nik}}",
   tempatLahir: "{{tempat lahir}}",
   tanggalLahir: "{{tanggal lahir}}",
-  pekerjaanOrtu: "{{pekerjaan Orang tua}}",
+  pekerjaanPemohon: "{{pekerjaan pemohon}}",
   agama: "{{agama}}",
-  alamatOrtu: "{{alamat orang tua}}",
+  alamatPemohon: "{{alamat pemohon}}",
   penghasilan: "{{penghasilan}}",
   tanggungan: "{{tanggungan}}",
 };
