@@ -1,0 +1,354 @@
+:root {
+  --ink: #17231f;
+  --green: #123c32;
+  --mint: #e9f1ed;
+  --paper: #fff;
+  --line: #dce5df;
+  --muted: #66756e;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  color: var(--ink);
+  background: #f3f6f4;
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+}
+.topbar {
+  height: 68px;
+  padding: 0 max(24px, calc((100vw - 1480px) / 2));
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+}
+.brand {
+  color: var(--green);
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -1.3px;
+  text-decoration: none;
+}
+.brand span {
+  color: #d47732;
+}
+.topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.save-status {
+  color: var(--muted);
+  font-size: 13px;
+}
+.button {
+  border: 0;
+  border-radius: 8px;
+  padding: 11px 15px;
+  background: var(--green);
+  color: #fff;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.button:hover {
+  background: #0b2d24;
+}
+.button-secondary {
+  color: var(--green);
+  background: #edf3ef;
+}
+.app-shell {
+  max-width: 1480px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(360px, 0.86fr) minmax(540px, 1.14fr);
+  align-items: start;
+}
+.editor {
+  padding: 42px max(26px, calc((100vw - 1480px) / 2));
+  padding-right: 40px;
+  background: #fff;
+  min-height: calc(100vh - 68px);
+}
+.intro {
+  margin-bottom: 34px;
+}
+.eyebrow {
+  color: #b95f22;
+  letter-spacing: 1.3px;
+  font-size: 11px;
+  font-weight: 800;
+  margin: 0 0 9px;
+}
+.intro h1 {
+  font-size: 28px;
+  line-height: 1.16;
+  letter-spacing: -0.8px;
+  margin: 0 0 11px;
+}
+.intro p:not(.eyebrow) {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 0;
+}
+.back-link {
+  display: inline-block;
+  margin: 0 0 22px;
+  color: var(--green);
+  font-size: 13px;
+  font-weight: 750;
+  text-decoration: none;
+}
+.back-link:hover {
+  text-decoration: underline;
+}
+fieldset {
+  padding: 0 0 26px;
+  margin: 0 0 25px;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+}
+fieldset:last-child {
+  border-bottom: 0;
+}
+legend {
+  padding: 0;
+  margin-bottom: 17px;
+  color: var(--green);
+  font-size: 15px;
+  font-weight: 800;
+}
+.field-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+.full-width {
+  grid-column: 1/-1;
+}
+label {
+  display: grid;
+  gap: 7px;
+  color: #3e4c45;
+  font-size: 13px;
+  font-weight: 650;
+}
+.required {
+  color: #b74a2b;
+}
+input,
+textarea,
+select {
+  width: 100%;
+  border: 1px solid #cbd7cf;
+  border-radius: 7px;
+  padding: 10px 11px;
+  color: var(--ink);
+  background: #fff;
+  font: inherit;
+  font-size: 14px;
+  outline: none;
+}
+textarea {
+  resize: vertical;
+}
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--green);
+  box-shadow: 0 0 0 3px #dcece5;
+}
+.preview-area {
+  padding: 30px;
+}
+.preview-toolbar {
+  max-width: 794px;
+  margin: 0 auto 11px;
+  padding: 0 3px;
+  color: var(--muted);
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  font-weight: 750;
+  letter-spacing: 0.6px;
+}
+.letter {
+  width: 794px;
+  min-height: 1123px;
+  margin: 0 auto;
+  padding: 4cm 3cm 3cm 4cm;
+  background: var(--paper);
+  box-shadow: 0 14px 36px #182c2318;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 12.4pt;
+  line-height: 1.32;
+}
+.letter h2 {
+  margin: 0 0 29px;
+  text-align: center;
+  font-size: 14pt;
+  line-height: 1.25;
+  text-decoration: underline;
+}
+.letter p {
+  margin: 0 0 13px;
+  text-align: justify;
+}
+.identity-list {
+  margin: 0 0 0 80px;
+}
+.identity-list div {
+  display: grid;
+  grid-template-columns: 190px 1fr;
+  margin: 8px 0;
+}
+.identity-list dt {
+  position: relative;
+  padding-right: 18px;
+}
+.identity-list dt::after {
+  content: ":";
+  position: absolute;
+  right: 4px;
+}
+.identity-list dd {
+  grid-column: 2;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+.letter ol {
+  margin: 0 0 15px;
+  padding-left: 22px;
+}
+.letter li {
+  padding-left: 7px;
+  margin: 0 0 4px;
+  text-align: justify;
+}
+.signature {
+  width: 270px;
+  margin: 18px 0 0 auto;
+  text-align: center;
+}
+.signature p {
+  margin: 0 0 10px;
+  text-align: center;
+}
+.signature-space {
+  height: 76px;
+}
+.signature-name {
+  font-weight: bold;
+  text-decoration: underline;
+}
+@media (max-width: 1100px) {
+  .app-shell {
+    grid-template-columns: 1fr;
+  }
+  .editor {
+    min-height: 0;
+    padding-right: max(26px, calc((100vw - 1480px) / 2));
+  }
+  .preview-area {
+    overflow: auto;
+  }
+  .letter {
+    margin: 0 auto;
+  }
+}
+@media (max-width: 600px) {
+  .topbar {
+    padding: 0 16px;
+  }
+  .save-status,
+  #resetButton {
+    display: none;
+  }
+  .topbar-actions {
+    gap: 6px;
+  }
+  .button {
+    padding: 9px 8px;
+    font-size: 12px;
+  }
+  .editor {
+    padding: 28px 20px;
+  }
+  .field-grid {
+    grid-template-columns: 1fr;
+  }
+  .full-width {
+    grid-column: auto;
+  }
+  .preview-area {
+    padding: 18px 0;
+  }
+  .preview-toolbar {
+    padding: 0 18px;
+  }
+  .preview-toolbar span:last-child {
+    display: none;
+  }
+  .letter {
+    transform-origin: top left;
+  }
+}
+@page {
+  size: A4;
+  margin: 0;
+}
+@media print {
+  body {
+    background: #fff;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .app-shell,
+  .preview-area {
+    display: block;
+    padding: 0;
+    margin: 0;
+  }
+  .letter {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0;
+    padding: 4cm 3cm 3cm 4cm;
+    box-shadow: none;
+    font-size: 11.4pt;
+    line-height: 1.28;
+  }
+  .letter h2 {
+    margin-bottom: 7mm;
+    font-size: 13pt;
+  }
+  .identity-list {
+    margin-bottom: 4mm;
+  }
+  .letter p {
+    margin-bottom: 3.3mm;
+  }
+  .letter li {
+    margin-bottom: 1.1mm;
+  }
+  .signature {
+    margin-top: 5mm;
+  }
+}

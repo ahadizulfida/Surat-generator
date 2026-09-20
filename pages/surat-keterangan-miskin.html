@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#123c32" />
     <title>Suratku — Surat Keterangan Miskin</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="../styles/miskin.css" />
   </head>
   <body>
     <header class="topbar no-print">
-      <a class="brand" href="index.html">surat<span>ku</span></a>
+      <a class="brand" href="../index.html">Generator<span>Surat</span></a>
       <div class="topbar-actions">
         <span class="save-status" id="saveStatus" aria-live="polite"
           >Belum ada data tersimpan</span
@@ -23,7 +23,7 @@
     <main class="app-shell">
       <section class="editor no-print" aria-labelledby="formTitle">
         <div class="intro">
-          <a class="back-link" href="index.html">← Semua template</a>
+          <a class="back-link" href="../index.html">← Semua template</a>
           <p class="eyebrow">TEMPLATE 02</p>
           <h1 id="formTitle">Surat Keterangan Miskin</h1>
           <p>
@@ -166,7 +166,13 @@
         </div>
         <article class="letter miskin-letter" id="letterPreview">
           <header class="official-header">
-            <div class="emblem" aria-hidden="true">PEMKAB</div>
+            <div aria-hidden="true">
+              <img
+                src="../img/kop-bireuen.png"
+                alt="kop-bireuen"
+                class="emblem"
+              />
+            </div>
             <div>
               <h2>
                 PEMERINTAH KABUPATEN
@@ -274,6 +280,6 @@
         </article>
       </section>
     </main>
-    <script src="miskin.js"></script>
+    <script src="../scripts/miskin.js"></script>
   </body>
 </html>

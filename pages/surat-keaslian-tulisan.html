@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#123c32" />
+    <title>Suratku — Keaslian Tulisan</title>
+    <link rel="stylesheet" href="../styles/keaslian.css" />
+  </head>
+  <body>
+    <header class="topbar no-print">
+      <a class="brand" href="../index.html">Generator<span>Surat</span></a>
+      <div class="topbar-actions">
+        <span class="save-status" id="saveStatus" aria-live="polite"
+          >Belum ada data tersimpan</span
+        ><button class="button button-secondary" id="resetButton" type="button">
+          Kosongkan</button
+        ><button class="button" id="printButton" type="button">
+          Cetak / Simpan PDF
+        </button>
+      </div>
+    </header>
+    <main class="app-shell">
+      <section class="editor no-print" aria-labelledby="formTitle">
+        <div class="intro">
+          <a class="back-link" href="../index.html">← Semua template</a>
+          <p class="eyebrow">TEMPLATE 03</p>
+          <h1 id="formTitle">Surat Pernyataan Keaslian Tulisan</h1>
+          <p>
+            Isi data penulis dan judul skripsi. Pratinjau surat di sebelah kanan
+            akan otomatis berubah dan siap dicetak.
+          </p>
+        </div>
+        <form id="letterForm" novalidate>
+          <fieldset>
+            <legend>Data Penulis</legend>
+            <div class="field-grid">
+              <label class="full-width"
+                >Nama <span class="required">*</span
+                ><input
+                  name="namaPenulis"
+                  placeholder="Nama lengkap"
+                  required /></label
+              ><label
+                >NPM <span class="required">*</span
+                ><input
+                  name="npm"
+                  inputmode="numeric"
+                  placeholder="Nomor Pokok Mahasiswa"
+                  required /></label
+              ><label
+                >Program Studi <span class="required">*</span
+                ><input
+                  name="programStudi"
+                  placeholder="Contoh: Pendidikan Matematika"
+                  required /></label
+              ><label class="full-width"
+                >Judul Skripsi <span class="required">*</span
+                ><textarea
+                  name="judulSkripsi"
+                  rows="3"
+                  placeholder="Judul lengkap skripsi"
+                  required
+                ></textarea>
+              </label>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>Tanggal Pernyataan</legend>
+            <div class="field-grid">
+              <label class="full-width"
+                >Tanggal <span class="required">*</span
+                ><input name="tanggalHariIni" type="date" required
+              /></label>
+            </div>
+          </fieldset>
+        </form>
+      </section>
+      <section class="preview-area" aria-label="Pratinjau surat">
+        <div class="preview-toolbar no-print">
+          <span>PRATINJAU A4</span
+          ><span>Data tersimpan otomatis di perangkat ini</span>
+        </div>
+        <article class="letter" id="letterPreview">
+          <h2>SURAT PERNYATAAN KEASLIAN TULISAN</h2>
+          <p>Saya yang bertanda tangan dibawah ini,</p>
+          <dl class="identity-list">
+            <div>
+              <dt>Nama</dt>
+              <dd data-output="namaPenulis">{{namaPenulis}}</dd>
+            </div>
+            <div>
+              <dt>NPM</dt>
+              <dd data-output="npm">{{npm}}</dd>
+            </div>
+            <div>
+              <dt>Program Studi</dt>
+              <dd data-output="programStudi">{{programStudi}}</dd>
+            </div>
+            <div>
+              <dt>Fakultas</dt>
+              <dd>FKIP</dd>
+            </div>
+            <div>
+              <dt>Judul Skripsi</dt>
+              <dd data-output="judulSkripsi">{{judulSkripsi}}</dd>
+            </div>
+          </dl>
+          <br />
+          <p>Menerangkan bahwa :</p>
+          <ol>
+            <li>
+              Skripsi ini saya berdasarkan kode etik penulisan ilmiah yang
+              berlaku.
+            </li>
+            <li>
+              Skripsi ini saya tulis berdasarkan hasil pemikiran saya dengan
+              bimbingan dari dosen pembimbing tanpa melakukan plagiasi baik
+              sebagian atau seluruhnya.
+            </li>
+            <li>
+              Apabila diketahui di kemudian hari terbukti/dapat dibuktikan
+              skripsi ini hasil plagiasi baik sebagian maupun seluruhnya, maka
+              saya menanggung resiko yang diberikan oleh Fakultas dan Ilmu
+              Pendidikan Universitas Almuslim.
+            </li>
+          </ol>
+          <p>
+            Demikianlah surat pernyataan ini saya buat agar dapat digunakan
+            seperlunya.
+          </p>
+          <div class="signature">
+            <p>
+              Bireuen,
+              <span data-output="tanggalHariIni">{{tanggalHariIni}}</span>
+            </p>
+            <p>Penulis</p>
+            <div class="signature-space"></div>
+            <p class="signature-name" data-output="namaPenulis">
+              {{namaPenulis}}
+            </p>
+            <p>NPM. <span data-output="npm">{{npm}}</span></p>
+          </div>
+        </article>
+      </section>
+    </main>
+    <script src="../scripts/keaslian.js"></script>
+  </body>
+</html>
